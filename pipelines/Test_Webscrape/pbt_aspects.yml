@@ -1,0 +1,8 @@
+version: 1
+configurations:
+- default
+dependencies:
+- type: workflow
+  id: kLobt
+  name: prophecy-spark-ai
+  enabled: true

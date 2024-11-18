@@ -1,0 +1,387 @@
+{
+  "metainfo" : {
+    "id" : "1",
+    "uri" : "pipelines/Test_Webscrape",
+    "language" : "python",
+    "fabricId" : "4134",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "matthewprophecy.io_team.helloworld.functions",
+      "sharedFunctionPackageNames" : [ ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ {
+      "type" : "pypi",
+      "id" : "kLobt",
+      "name" : "prophecy-spark-ai",
+      "enabled" : true,
+      "package" : "prophecy-spark-ai"
+    } ],
+    "dependentProjectExternalDependencies" : [ ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "test_webscrape",
+    "configurationVersion" : "v1"
+  },
+  "connections" : [ {
+    "id" : "vs13Lgdfe7dMPsYyNVrC0$$Og_JMwkKIlCyLHZ0nsdCE",
+    "source" : "_6N8Ac2HBB_deqko0VJow$$nd3wATXiEuifvbVHmdFro",
+    "sourcePort" : "8JUqVMkEhchTiNx0y3dmI$$l3XWB1rgfeM9nz9wcVsLq",
+    "target" : "3h8MNtusYJPJxzQlhjDmG$$DYFgn78ZgE3ll7nJxm-nM",
+    "targetPort" : "EjdNVpquXi4wmotsuUgTl$$KrNEhCqa0HXcFleTspP1x"
+  }, {
+    "id" : "24qjNaRedcFmXjkE2-oTI$$XoLsqMHsSPD6GLZaUCfi8",
+    "source" : "3h8MNtusYJPJxzQlhjDmG$$DYFgn78ZgE3ll7nJxm-nM",
+    "sourcePort" : "VBJMlrv4HgTThPLJ0edkt$$eIdRVbA8WP3_joNO1Ztd7",
+    "target" : "S0tLRgVoEbVz4giuYyBr1$$-TdKKRwQ6UXI8BLV-Wg9A",
+    "targetPort" : "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO"
+  }, {
+    "id" : "_-C0x5cseJQYCpeHGvW7p$$mQdM5on3qqIT3IrJ9iuXa",
+    "source" : "S0tLRgVoEbVz4giuYyBr1$$-TdKKRwQ6UXI8BLV-Wg9A",
+    "sourcePort" : "V4tbuduqRhThSRTOhlKra$$CC33qTvuMSBuAqNO1uOTX",
+    "target" : "J6nmwAcdqiIZz_h5CAQ9v$$kM_ARW6D0CnhfA9MXFBGX",
+    "targetPort" : "4OiQo2YFFBm1wimYGykIc$$AXEs5gFzDIVBixNegZHuu"
+  } ],
+  "processes" : {
+    "3h8MNtusYJPJxzQlhjDmG$$DYFgn78ZgE3ll7nJxm-nM" : {
+      "id" : "3h8MNtusYJPJxzQlhjDmG$$DYFgn78ZgE3ll7nJxm-nM",
+      "component" : "Script",
+      "metadata" : {
+        "label" : "parse_response",
+        "slug" : "parse_response",
+        "x" : 700,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "EjdNVpquXi4wmotsuUgTl$$KrNEhCqa0HXcFleTspP1x",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "content",
+              "type" : "binary",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "VBJMlrv4HgTThPLJ0edkt$$eIdRVbA8WP3_joNO1Ztd7",
+          "slug" : "out0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "data.id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.price",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.quantity",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.amount",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.takerSide",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.ts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.createTime",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true
+      },
+      "properties" : {
+        "script" : "column_data = in0.withColumn(\"json_content\", decode(col(\"content\"), 'utf-8'))\n\njson_line_schema = StructType([StructField(\"id\", IntegerType())\n                        , StructField(\"price\", DecimalType(12.4))\n                        , StructField(\"quantity\", DecimalType(12.4))\n                        , StructField(\"amount\", DecimalType(12.4))\n                        , StructField(\"takerSide\", StringType())\n                        , StructField(\"ts\", DoubleType())\n                        , StructField(\"createTime\", DoubleType())])\n\njson_doc_schema = ArrayType(StringType())\n\ndf = column_data.withColumn(\"converted_json\", from_json(\"json_content\", json_doc_schema)).withColumn(\"exploded_data\", explode(\"converted_json\"))\\\n    .withColumn(\"data\", from_json(\"exploded_data\", json_line_schema)).select(\"data\")\n\nout0 = df.select(df.data.id, df.data.price, df.data.quantity, df.data.amount, df.data.takerSide, df.data.ts, df.data.createTime)",
+        "scriptMethodHeader" : "def Script(spark: SparkSession, in0: DataFrame) -> DataFrame:",
+        "scriptMethodFooter" : "    return out0"
+      }
+    },
+    "J6nmwAcdqiIZz_h5CAQ9v$$kM_ARW6D0CnhfA9MXFBGX" : {
+      "id" : "J6nmwAcdqiIZz_h5CAQ9v$$kM_ARW6D0CnhfA9MXFBGX",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "write_delta_table",
+        "slug" : "write_delta_table",
+        "x" : 1140,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4OiQo2YFFBm1wimYGykIc$$AXEs5gFzDIVBixNegZHuu",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "data.ts",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.createTime",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/poloniex_trades_target"
+      }
+    },
+    "S0tLRgVoEbVz4giuYyBr1$$-TdKKRwQ6UXI8BLV-Wg9A" : {
+      "id" : "S0tLRgVoEbVz4giuYyBr1$$-TdKKRwQ6UXI8BLV-Wg9A",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "convert_timestamps",
+        "slug" : "convert_timestamps",
+        "x" : 900,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO",
+          "slug" : "Script_1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "data.id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.price",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.quantity",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.amount",
+              "type" : "decimal(14,4)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.takerSide",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.ts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "data.createTime",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "V4tbuduqRhThSRTOhlKra$$CC33qTvuMSBuAqNO1uOTX",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "data.ts",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_unixtime(`data.ts`/ 1000)"
+          },
+          "description" : ""
+        }, {
+          "target" : "data.createTime",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_unixtime(`data.createTime` / 1000)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.createTime", "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.ts" ]
+      }
+    },
+    "_6N8Ac2HBB_deqko0VJow$$nd3wATXiEuifvbVHmdFro" : {
+      "id" : "_6N8Ac2HBB_deqko0VJow$$nd3wATXiEuifvbVHmdFro",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "poloniex_data",
+        "slug" : "poloniex_data",
+        "x" : 480,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "8JUqVMkEhchTiNx0y3dmI$$l3XWB1rgfeM9nz9wcVsLq",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/poloniex_data"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false
+  }
+}

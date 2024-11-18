@@ -1,0 +1,1 @@
+{"format":"webpage","url":"https://api.poloniex.com/markets/BTC_USDT/trades?limit=1000","description":"","schema":{"type":"struct","fields":[{"name":"content","type":"binary","nullable":false}]},"datasetType":"WebApp"}

@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: data.ts
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: data.createTime
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
