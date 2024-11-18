@@ -21,4 +21,12 @@ jobs:
 
       - name: Run Package
         run: |
-          python -m prophecy_lineage_extractor 
+          export PROPHECY_WS_URL=${{ secrets.PROPHECY_WS_URL }}
+          export PROPHECY_PATL=${{ secrets.PROPHECY_PAT }}
+          
+          export SMTP_HOST=smtp.gmail.com
+          export SMTP_PORT=587
+          export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
+          export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+          export RECEIVER_EMAIL=ashish@prophecy.io
+          python -m prophecy_lineage_extractor --project-id 6512 --pipeline-id customer_orders
