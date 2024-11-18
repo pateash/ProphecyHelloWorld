@@ -29,5 +29,5 @@ jobs:
           export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
           export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
           export RECEIVER_EMAIL=ashish@prophecy.io
-          python -m prophecy_lineage_extractor --project-id 6512 --pipeline-id 6512/pipelines/customer_orders
+          python -m prophecy_lineage_extractor --project-id 6512 --pipeline-id 6512/pipelines/customer_orders --send-email
 
