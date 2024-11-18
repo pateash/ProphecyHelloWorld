@@ -6,7 +6,7 @@ on:
       - main  # Trigger on merge to the main branch
 
 jobs:
-  install-and-run:
+  extract-and-mail-prophecy-lineage:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
         run: |
           pip install prophecy-lineage-extractor
 
-      - name: Run Package
+      - name: Extract and Send Prophecy Lineage
         run: |
           export PROPHECY_WS_URL=${{ secrets.PROPHECY_WS_URL }}
           export PROPHECY_PAT=${{ secrets.PROPHECY_PAT }}
