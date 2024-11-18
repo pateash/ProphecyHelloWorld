@@ -1,0 +1,24 @@
+name: Run Prophecy Lineage extractor and send output to email
+
+on:
+  push:
+    branches:
+      - main  # Trigger on merge to the main branch
+
+jobs:
+  install-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Adjust Python version as needed
+
+      - name: Install Package from PyPI
+        run: |
+          pip install prophecy-lineage-extractor
+
+      - name: Run Package
+        run: |
+          python -m prophecy_lineage_extractor 
