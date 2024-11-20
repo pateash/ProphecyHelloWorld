@@ -391,7 +391,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Calculates the total number of orders and spending for each customer, while also capturing the duration of their account.",
+        "comment" : "Calculates the total number of orders and adjusted spending amounts for each customer, while also capturing the length of their account tenure.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -463,7 +463,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(amount)+1"
+            "expression" : "sum(amount)+2"
           },
           "description" : "",
           "_row_id" : null
@@ -480,7 +480,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##account_length_days", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##amount", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##customer_id", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##order_id" ],
+        "columnsSelector" : [ "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##customer_id", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##amount", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##account_length_days", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##order_id" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
