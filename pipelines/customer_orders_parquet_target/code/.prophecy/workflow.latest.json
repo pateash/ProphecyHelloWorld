@@ -1,5 +1,16 @@
 {
   "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
+      }
+    },
     "id" : "1",
     "uri" : "pipelines/customer_orders_parquet_target",
     "language" : "python",
@@ -10,7 +21,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "matthewprophecy.io_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -35,14 +46,16 @@
     "hadoopConf" : [ ],
     "codeMode" : "sparse",
     "buildSystem" : "maven",
-    "externalDependencies" : [ {
-      "type" : "pypi",
-      "id" : "kLobt",
-      "name" : "prophecy-spark-ai",
-      "enabled" : true,
-      "package" : "prophecy-spark-ai"
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
     } ],
-    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -51,7 +64,7 @@
       "enabled" : false,
       "value" : 1000
     },
-    "configurationVersion" : "v1"
+    "configurationVersion" : "v2"
   },
   "connections" : [ {
     "id" : "425",
@@ -259,7 +272,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "conditions" : [ {
@@ -336,6 +350,10 @@
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "_Z68JhrJn8ULpJc50k-qv$$0O4l4G8zf5itik9daf0dd" : {
@@ -402,7 +420,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "userSpecifiedEnd" : null,
@@ -433,6 +452,10 @@
         } ],
         "frameEnd" : "currentRow",
         "userSpecifiedStart" : null
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/WindowFunction",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "Target_63106" : {
@@ -496,7 +519,8 @@
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/customers_orders"
@@ -584,7 +608,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
@@ -620,6 +645,10 @@
         "importString" : "",
         "activeTab" : "expressions",
         "columnsSelector" : [ "94427##amount", "94427##account_open_date", "94427##order_id", "94427##customer_id" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "Source_51275" : {
@@ -642,7 +671,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/customers"
@@ -718,7 +748,8 @@
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/customer_orders_running_total"
@@ -744,7 +775,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/orders"
@@ -814,7 +846,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "allIns" : false,
@@ -858,6 +891,10 @@
           "description" : "",
           "_row_id" : null
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     }
   },
@@ -865,6 +902,7 @@
     "inputs" : [ ],
     "outputs" : [ ],
     "selectedInputFields" : [ ],
-    "isCustomOutputSchema" : false
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
   }
 }
