@@ -390,7 +390,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Calculates the total number of orders and spending for each customer, while also capturing the duration of their account.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -461,7 +463,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(amount)"
+            "expression" : "sum(amount)+1"
           },
           "description" : "",
           "_row_id" : null
@@ -475,9 +477,10 @@
           "_row_id" : null
         } ],
         "allowSelection" : true,
+        "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##account_length_days", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##amount", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##customer_id", "QqN_jWgnTy9pmFBTDn1K6$$XqO4KdvYV1gCcncjCNxhg##order_id" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
