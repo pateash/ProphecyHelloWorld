@@ -21,7 +21,7 @@ jobs:
 
       - name: Extract and Send Prophecy Lineage
         run: |
-          export PROPHECY_WS_URL=${{ secrets.PROPHECY_WS_URL }}
+          export PROPHECY_URL=https://app.prophecy.io
           export PROPHECY_PAT=${{ secrets.PROPHECY_PAT }}
           
           export SMTP_HOST=smtp.gmail.com
