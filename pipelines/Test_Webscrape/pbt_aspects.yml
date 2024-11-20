@@ -6,3 +6,5 @@ dependencies:
   id: kLobt
   name: prophecy-spark-ai
   enabled: true
+pipelineVersion:
+  version: '2'

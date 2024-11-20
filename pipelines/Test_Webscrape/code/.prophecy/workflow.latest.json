@@ -1,5 +1,16 @@
 {
   "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
+      }
+    },
     "id" : "1",
     "uri" : "pipelines/Test_Webscrape",
     "language" : "python",
@@ -10,7 +21,7 @@
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "matthewprophecy.io_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -35,14 +46,16 @@
     "hadoopConf" : [ ],
     "codeMode" : "sparse",
     "buildSystem" : "maven",
-    "externalDependencies" : [ {
-      "type" : "pypi",
-      "id" : "kLobt",
-      "name" : "prophecy-spark-ai",
-      "enabled" : true,
-      "package" : "prophecy-spark-ai"
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
     } ],
-    "dependentProjectExternalDependencies" : [ ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -52,7 +65,7 @@
       "value" : 1000
     },
     "topLevelPackage" : "test_webscrape",
-    "configurationVersion" : "v1"
+    "configurationVersion" : "v2"
   },
   "connections" : [ {
     "id" : "vs13Lgdfe7dMPsYyNVrC0$$Og_JMwkKIlCyLHZ0nsdCE",
@@ -179,7 +192,8 @@
           "isStreaming" : false
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : true
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "script" : "column_data = in0.withColumn(\"json_content\", decode(col(\"content\"), 'utf-8'))\n\njson_line_schema = StructType([StructField(\"id\", IntegerType())\n                        , StructField(\"price\", DecimalType(12.4))\n                        , StructField(\"quantity\", DecimalType(12.4))\n                        , StructField(\"amount\", DecimalType(12.4))\n                        , StructField(\"takerSide\", StringType())\n                        , StructField(\"ts\", DoubleType())\n                        , StructField(\"createTime\", DoubleType())])\n\njson_doc_schema = ArrayType(StringType())\n\ndf = column_data.withColumn(\"converted_json\", from_json(\"json_content\", json_doc_schema)).withColumn(\"exploded_data\", explode(\"converted_json\"))\\\n    .withColumn(\"data\", from_json(\"exploded_data\", json_line_schema)).select(\"data\")\n\nout0 = df.select(df.data.id, df.data.price, df.data.quantity, df.data.amount, df.data.takerSide, df.data.ts, df.data.createTime)",
@@ -230,7 +244,8 @@
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/poloniex_trades_target"
@@ -327,7 +342,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
@@ -349,6 +365,10 @@
         "importString" : "",
         "activeTab" : "expressions",
         "columnsSelector" : [ "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.createTime", "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.ts" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "_6N8Ac2HBB_deqko0VJow$$nd3wATXiEuifvbVHmdFro" : {
@@ -371,7 +391,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/poloniex_data"
@@ -382,6 +403,7 @@
     "inputs" : [ ],
     "outputs" : [ ],
     "selectedInputFields" : [ ],
-    "isCustomOutputSchema" : false
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
   }
 }

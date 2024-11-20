@@ -1,16 +1,27 @@
 {
   "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.4.0",
+        "pyPiVersion" : "1.9.24"
+      }
+    },
     "id" : "10493/pipelines/farmers-markets-irs",
     "uri" : "pipelines/farmers-markets-irs",
     "language" : "python",
-    "fabricId" : "3954",
+    "fabricId" : "647",
     "frontEndLanguage" : "sql",
     "mode" : "batch",
     "udfs" : {
       "language" : "python",
       "udfs" : [ ],
       "functionPackageName" : "matthewprophecy.io_team.helloworld.functions",
-      "sharedFunctionPackageNames" : [ ]
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
     },
     "udafs" : {
       "language" : "python",
@@ -36,7 +47,15 @@
     "codeMode" : "sparse",
     "buildSystem" : "maven",
     "externalDependencies" : [ ],
-    "dependentProjectExternalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
     "isImported" : false,
     "interimMode" : "Full",
     "interimModeEnabled" : true,
@@ -45,7 +64,7 @@
       "enabled" : false,
       "value" : 1000
     },
-    "configurationVersion" : "v1"
+    "configurationVersion" : "v2"
   },
   "connections" : [ {
     "id" : "6Nh4Vt3W076VeEL18hjm7",
@@ -215,7 +234,8 @@
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/farmers_market_tax_report"
@@ -276,7 +296,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "allIns" : false,
@@ -319,6 +340,10 @@
           "description" : "",
           "_row_id" : null
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "laIUhbgfHRY4993gFVzxO$$rjdQWJBSZSvG8O7PO4z43" : {
@@ -1375,7 +1400,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "M4BRAyG0x_QkLexDMANdM$$U4Jk3zG9je89J1o_DoATZ##N1", "M4BRAyG0x_QkLexDMANdM$$U4Jk3zG9je89J1o_DoATZ##agi_stub", "M4BRAyG0x_QkLexDMANdM$$U4Jk3zG9je89J1o_DoATZ##zipcode" ],
@@ -1401,6 +1427,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "Yy6pP8lhFguYKvFwdBPf5$$dJoN3lF8FUG0zZ1lAlyvo" : {
@@ -1423,7 +1453,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/farmers-markets"
@@ -1537,7 +1568,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "conditions" : [ {
@@ -1555,6 +1587,10 @@
         "allIn0" : false,
         "whereClause" : null,
         "headAlias" : "farmers_markets"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "o_h6QmybDViEGHIl_GLLl$$Or8rmF-HQzR4TQ41tumhi" : {
@@ -2611,7 +2647,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "hRsQ50JsiBzTxVhh2HcPZ$$P551Ei6JQ5G0Zs-TmHrMs##zipcode" ],
@@ -2619,6 +2656,10 @@
           "format" : "sql",
           "expression" : "zipcode != '00000' and zipcode != '99999' and zipcode is not null"
         }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "CcQ378yKaOzliNXblEhYx$$h8weA19Uiih2DyMJtQVt0" : {
@@ -3180,7 +3221,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "xmelSzkbtvAQTQAgE8ves$$TTsxKQLXXu-S7xopECZ8f##zip" ],
@@ -3188,6 +3230,10 @@
           "format" : "sql",
           "expression" : "zip is not null"
         }
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "0A-uX-CfOhxXbeoBftZ0_$$CjwNS5iAq16iMcTuMFy6u" : {
@@ -3335,7 +3381,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "JEALQcZzV9QqpqzccZKAe$$BbB2e0xt2QPi7zcgtZJ_4##no_fm_low_income", "JEALQcZzV9QqpqzccZKAe$$BbB2e0xt2QPi7zcgtZJ_4##no_fm_high_income", "JEALQcZzV9QqpqzccZKAe$$BbB2e0xt2QPi7zcgtZJ_4##has_fm_low_income", "JEALQcZzV9QqpqzccZKAe$$BbB2e0xt2QPi7zcgtZJ_4##has_fm", "JEALQcZzV9QqpqzccZKAe$$BbB2e0xt2QPi7zcgtZJ_4##has_fm_high_income" ],
@@ -3389,6 +3436,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "UYOAW30-drlNFNzQZoFLq$$bEE6I_2R-fJpVvpZrifPm" : {
@@ -3455,7 +3506,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "RJayMoCenl_ekaVMTlKoO$$yaM7pQA3AQg5NfrWSDTUV##zipcode", "RJayMoCenl_ekaVMTlKoO$$yaM7pQA3AQg5NfrWSDTUV##all_returns", "RJayMoCenl_ekaVMTlKoO$$yaM7pQA3AQg5NfrWSDTUV##low_income_returns", "RJayMoCenl_ekaVMTlKoO$$yaM7pQA3AQg5NfrWSDTUV##high_income_returns" ],
@@ -3502,6 +3554,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "k3nS0ZBEay-SmGyF0RmoE$$AMu4m57ehEbplpVu-PO06" : {
@@ -3613,7 +3669,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##zipcode", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##is_high_income", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##num_farmers_markets", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##all_returns", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##high_income_returns", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##has_fm", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##zip", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##low_income_returns", "mX-kp-OS9L2Ff_l7E_AgM$$7gCFz_9paDB1Oe_LiYsU9##high_income_percent" ],
@@ -3709,6 +3766,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "_GiFXBzO_NnB4iIsyRM0T$$V8hemfRGNZuQVK4vHELdK" : {
@@ -3731,7 +3792,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "datasetId" : "datasets/irs-zipcode-data"
@@ -3828,7 +3890,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##no_fm_high_income", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##no_fm", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##has_fm_low_income", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##has_fm_high_income", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##no_fm_low_income", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##num_zipcodes", "hAgHzSxeZVA-6z0nUi2TC$$MAVlPEYPua3sR98BoqRHt##has_fm" ],
@@ -3882,6 +3945,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "tIhfAxJQB-pcVv4ldPaJv$$1k8MYOiRHQflvTcwtnu3p" : {
@@ -3984,7 +4051,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "columnsSelector" : [ "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##num_farmers_markets", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##zipcode", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##high_income_percent", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##high_income_returns", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##zip", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##is_high_income", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##all_returns", "jqRI526NuVpWsZleJiHVn$$mn9kTTpOdJt61fbtpfd2q##low_income_returns" ],
@@ -4052,6 +4120,10 @@
           },
           "description" : ""
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     },
     "r0kwOWwgxUBGJlPYvNjKc$$fgT-0yCKnYPehJ6DyA5jk" : {
@@ -4613,7 +4685,8 @@
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
       },
       "properties" : {
         "allIns" : false,
@@ -4640,6 +4713,10 @@
           "description" : "",
           "_row_id" : null
         } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
       }
     }
   },
@@ -4647,6 +4724,7 @@
     "inputs" : [ ],
     "outputs" : [ ],
     "selectedInputFields" : [ ],
-    "isCustomOutputSchema" : false
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
   }
 }
