@@ -11,4 +11,4 @@ def customers_orders(spark: SparkSession, Sum_Amounts: DataFrame):
         .format("delta")\
         .option("mergeSchema", True)\
         .mode("overwrite")\
-        .saveAsTable("`prophecy_ashish_dev_cloud`.`customer_orders_table`")
+        .saveAsTable("`prophecy_demos`.`customer_orders_table`")

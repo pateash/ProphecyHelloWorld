@@ -1599,7 +1599,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "amounts * 84.6d"
+            "expression" : "amounts * 84.9d"
           },
           "description" : ""
         }, {
@@ -1640,7 +1640,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##last_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##orders", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##first_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##customer_id", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##amounts", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##account_length_days" ]
+        "columnsSelector" : [ "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##last_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##amounts", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##orders", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##account_length_days", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##first_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##customer_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
