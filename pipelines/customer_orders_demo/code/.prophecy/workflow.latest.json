@@ -443,7 +443,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Calculates the total number of orders and adjusted spending amounts for each customer, while also capturing the length of their account tenure.",
+        "comment" : "Calculates the total number of orders and spending for each customer, while also capturing the duration of their account.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -515,7 +515,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(amount)+2"
+            "expression" : "sum(amount)+3"
           },
           "description" : "",
           "_row_id" : null

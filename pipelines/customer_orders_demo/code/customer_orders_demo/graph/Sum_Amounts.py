@@ -11,6 +11,6 @@ def Sum_Amounts(spark: SparkSession, in0: DataFrame) -> DataFrame:
 
     return df1.agg(
         count(col("order_id")).alias("orders"), 
-        (sum(col("amount")) + lit(2)).alias("amounts"), 
+        (sum(col("amount")) + lit(3)).alias("amounts"), 
         first(col("account_length_days")).alias("account_length_days")
     )
