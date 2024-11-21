@@ -98,12 +98,6 @@
     "target" : "AResD3gy7zOFHUscaEf3F$$QfZGoDo-d1qjoM8Ja_dca",
     "targetPort" : "wkfO5BaWYU2GaFvgfMfpo$$TZdCSVcKG5XXX3aArcjqO"
   }, {
-    "id" : "LnW5fnHO4xkEw7yH02DCi",
-    "source" : "orwZ41lMimu26bZ69Ico9$$uwEmNIN4nxsKX1i2eY7CH",
-    "sourcePort" : "-avhmBOW3Ae0-vV35nGLm$$WvQedRF5ICPr0N4vyKktx",
-    "target" : "jUt2Auhcm4I2F_GA_cjyH$$So46p9d-_-MIni8N-BlFB",
-    "targetPort" : "TUPAxkcmNW6gaxDoSwy59$$u1b_oezRLaN1dwkfv85yA"
-  }, {
     "id" : "YO-el1imXo2Po3xIMRfpz",
     "source" : "eGAHPW18pTb6KBPIKZ8s2$$PM9Sr4bpTYctmX42jCh-E",
     "sourcePort" : "S5AiPUIh-854OJhqaG8H9$$wmV8swmqWCMdq90G19GVJ",
@@ -115,6 +109,18 @@
     "sourcePort" : "7c32lmuxNUZlhNps_jwhA$$CWPrCrv2z0Q8_fhtVftdl",
     "target" : "oEXOfcPP8PJy5JQm8et_5$$9wjAdkKamggAlpQ-0uS5W",
     "targetPort" : "UxXf97u9kgCH9D9yI5BfD$$1Zut1vlwJDqvE_0juN2FT"
+  }, {
+    "id" : "AKYJ6zuMdjgwSnfKG2oin",
+    "source" : "orwZ41lMimu26bZ69Ico9$$uwEmNIN4nxsKX1i2eY7CH",
+    "sourcePort" : "-avhmBOW3Ae0-vV35nGLm$$WvQedRF5ICPr0N4vyKktx",
+    "target" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
+    "targetPort" : "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0"
+  }, {
+    "id" : "tssysF4XumG-FuVxPrhsX$$5vlxWKfoOK3FJ67Kw_muh",
+    "source" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
+    "sourcePort" : "RemVMRxXeUtWw2giBgmIQ$$T9kfxHrLgVmo9H8hA5cbB",
+    "target" : "jUt2Auhcm4I2F_GA_cjyH$$So46p9d-_-MIni8N-BlFB",
+    "targetPort" : "TUPAxkcmNW6gaxDoSwy59$$u1b_oezRLaN1dwkfv85yA"
   } ],
   "processes" : {
     "AResD3gy7zOFHUscaEf3F$$QfZGoDo-d1qjoM8Ja_dca" : {
@@ -369,7 +375,7 @@
       "metadata" : {
         "label" : "customers_orders",
         "slug" : "customers_orders",
-        "x" : 820,
+        "x" : 1000,
         "y" : 220,
         "phase" : 0,
         "cache" : false,
@@ -383,34 +389,7 @@
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Unique identifier for the customer who placed the order.",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "orders",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
               "name" : "amounts",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_length_days",
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
@@ -515,7 +494,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(amount)+10"
+            "expression" : "sum(amount)"
           },
           "description" : "",
           "_row_id" : null
@@ -532,7 +511,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##order_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##customer_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##amount", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##account_length_days" ],
+        "columnsSelector" : [ "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##customer_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##amount", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##account_length_days", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##order_id" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -733,8 +712,8 @@
       "metadata" : {
         "label" : "customer_orders_running_table",
         "slug" : "customer_orders_running_table",
-        "x" : 820,
-        "y" : 20,
+        "x" : 920,
+        "y" : -20,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -903,6 +882,92 @@
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/WindowFunction",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM" : {
+      "id" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "roundup_amount",
+        "slug" : "roundup_amount",
+        "x" : 820,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for the customer who placed the order.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orders",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amounts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "RemVMRxXeUtWw2giBgmIQ$$T9kfxHrLgVmo9H8hA5cbB",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "amounts",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "int(amounts)"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     }

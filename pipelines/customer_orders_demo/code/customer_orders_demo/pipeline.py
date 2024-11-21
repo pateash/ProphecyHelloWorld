@@ -12,7 +12,8 @@ def pipeline(spark: SparkSession) -> None:
     df_By_CustomerId = By_CustomerId(spark, df_customer_table, df_orders_table)
     df_Cleanup = Cleanup(spark, df_By_CustomerId)
     df_Sum_Amounts = Sum_Amounts(spark, df_Cleanup)
-    customers_orders(spark, df_Sum_Amounts)
+    df_roundup_amount = roundup_amount(spark, df_Sum_Amounts)
+    customers_orders(spark, df_roundup_amount)
     df_WindowFunction_1 = WindowFunction_1(spark, df_Cleanup)
     customer_orders_running_table(spark, df_WindowFunction_1)
 
