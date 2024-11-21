@@ -515,7 +515,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "sum(amount)+3"
+            "expression" : "sum(amount)+10"
           },
           "description" : "",
           "_row_id" : null
@@ -532,7 +532,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "aggregate",
-        "columnsSelector" : [ "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##customer_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##amount", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##account_length_days", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##order_id" ],
+        "columnsSelector" : [ "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##order_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##customer_id", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##amount", "Q22Bh-rRcrslfIgU1Ah7I$$OdR-RTxRPrpS69UheIgyV##account_length_days" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
