@@ -9,5 +9,6 @@ from customer_orders_demo.functions import *
 def customers_orders_table(spark: SparkSession, Sum_Amounts: DataFrame):
     Sum_Amounts.write\
         .format("delta")\
+        .option("mergeSchema", True)\
         .mode("overwrite")\
         .saveAsTable("`prophecy_ashish_dev_cloud`.`customer_orders_table`")
