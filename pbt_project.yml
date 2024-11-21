@@ -123,6 +123,23 @@ pipelines:
       - datasets/customers_orders_table
     subgraphs: []
     dependencies: {}
+  pipelines/customer_orders_demo:
+    name: customer_orders_demo
+    description: ''
+    author: ashish@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-11-21 07:02:35'
+    datasets:
+      inputs:
+      - datasets/customer_table
+      - datasets/order_table
+      outputs:
+      - datasets/customer_orders_running_table
+      - datasets/customers_orders_table
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/report:
     name: report
@@ -345,6 +362,19 @@ datasets:
         description: ''
         author: ashish@prophecy.io
         createdAt: '2024-11-20 13:12:56'
+  datasets/customer_orders_running_table:
+    name: customer_orders_running_table
+    description: ''
+    author: ashish@prophecy.io
+    createdAt: '2024-11-21 10:37:26'
+    mode: batch
+    physicalDatasets:
+      ashish-fabric:
+        fabricId: 1527
+        datasetType: Database
+        description: ''
+        author: ashish@prophecy.io
+        createdAt: '2024-11-21 10:37:26'
 templates: {}
 jobs: {}
 gemContainer:
