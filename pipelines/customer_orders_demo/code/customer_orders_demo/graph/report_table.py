@@ -6,8 +6,5 @@ from prophecy.libs import typed_lit
 from customer_orders_demo.config.ConfigStore import *
 from customer_orders_demo.functions import *
 
-def customer_orders_running_table(spark: SparkSession, WindowFunction_1: DataFrame):
-    WindowFunction_1.write\
-        .format("delta")\
-        .mode("overwrite")\
-        .saveAsTable("`prophecy_demos`.`customer_orders_running_table`")
+def report_table(spark: SparkSession, Top_10: DataFrame):
+    Top_10.write.format("delta").mode("overwrite").saveAsTable("`prophecy_demos`.`report_table`")

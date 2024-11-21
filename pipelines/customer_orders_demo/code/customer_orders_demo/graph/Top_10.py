@@ -6,8 +6,5 @@ from prophecy.libs import typed_lit
 from customer_orders_demo.config.ConfigStore import *
 from customer_orders_demo.functions import *
 
-def customer_orders_running_table(spark: SparkSession, WindowFunction_1: DataFrame):
-    WindowFunction_1.write\
-        .format("delta")\
-        .mode("overwrite")\
-        .saveAsTable("`prophecy_demos`.`customer_orders_running_table`")
+def Top_10(spark: SparkSession, in0: DataFrame) -> DataFrame:
+    return in0.limit(10)

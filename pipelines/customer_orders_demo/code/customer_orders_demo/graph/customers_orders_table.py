@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from customer_orders_demo.config.ConfigStore import *
 from customer_orders_demo.functions import *
 
-def customers_orders(spark: SparkSession, Sum_Amounts: DataFrame):
+def customers_orders_table(spark: SparkSession, Sum_Amounts: DataFrame):
     Sum_Amounts.write\
         .format("delta")\
         .mode("overwrite")\

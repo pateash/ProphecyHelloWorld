@@ -134,10 +134,12 @@ pipelines:
     datasets:
       inputs:
       - datasets/customer_table
+      - datasets/customers_orders_table
       - datasets/order_table
       outputs:
       - datasets/customer_orders_running_table
       - datasets/customers_orders_table
+      - datasets/report_table
     subgraphs: []
     dependencies: {}
 datasets:
@@ -375,6 +377,19 @@ datasets:
         description: ''
         author: ashish@prophecy.io
         createdAt: '2024-11-21 10:37:26'
+  datasets/report_table:
+    name: report_table
+    description: ''
+    author: ashish@prophecy.io
+    createdAt: '2024-11-21 19:29:39'
+    mode: batch
+    physicalDatasets:
+      ashish-fabric:
+        fabricId: 1527
+        datasetType: Database
+        description: ''
+        author: ashish@prophecy.io
+        createdAt: '2024-11-21 19:29:39'
 templates: {}
 jobs: {}
 gemContainer:

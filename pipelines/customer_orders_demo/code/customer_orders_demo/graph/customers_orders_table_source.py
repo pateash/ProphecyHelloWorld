@@ -6,5 +6,5 @@ from prophecy.libs import typed_lit
 from customer_orders_demo.config.ConfigStore import *
 from customer_orders_demo.functions import *
 
-def roundup_amount(spark: SparkSession, in0: DataFrame) -> DataFrame:
-    return in0.select(expr("int(amounts)").alias("amounts"))
+def customers_orders_table_source(spark: SparkSession) -> DataFrame:
+    return spark.read.table("`prophecy_ashish_dev_cloud`.`customer_orders_table`")
