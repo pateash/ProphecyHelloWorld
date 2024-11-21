@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main  # Trigger on merge to the main branch
-
+    paths:
+      - 'datasets/**'
+      - 'pipelines/**'
+      - 'pbt_proect.yml'
+      - '.github/workflows/prophecy_lineage_extractor.yml'
 jobs:
   extract-and-mail-prophecy-lineage:
     runs-on: ubuntu-latest
