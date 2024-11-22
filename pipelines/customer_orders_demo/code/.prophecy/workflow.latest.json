@@ -1608,7 +1608,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "amounts * 84.9d"
+            "expression" : "amounts * 84.4d"
           },
           "description" : ""
         }, {
