@@ -8,7 +8,7 @@ from customer_orders_demo.functions import *
 
 def inr_amount(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
-        (col("amounts") * lit(84.4)).alias("amounts"), 
+        (col("amounts") * lit(84.9)).alias("amounts"), 
         col("customer_id"), 
         col("orders"), 
         col("account_length_days"), 
