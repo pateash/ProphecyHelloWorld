@@ -13,5 +13,6 @@ def inr_amount(spark: SparkSession, in0: DataFrame) -> DataFrame:
         col("orders"), 
         col("account_length_days"), 
         col("first_name"), 
-        col("last_name")
+        col("last_name"), 
+        concat(col("first_name"), lit(" "), col("last_name")).alias("full_name")
     )
