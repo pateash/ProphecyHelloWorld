@@ -5,17 +5,19 @@ if [[ $? != 0 ]];then
   echo "Error in installing package"
   exit 1
 fi
-python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo --output-dir "output"
-#GIT_COMMIT="1"
-#if [[ $GIT_COMMIT == "1" ]]; then
-#    echo "Commiting enabled, adding output file"
-#    git add src/hckr/__about__.py
-#    echo "========================================"
-#    git commit -m "Adding output file"
-#    echo "========================================"
-#    echo "Pushing changes"
-#    git push
-#else
-#    # simple version are created manually from code edits.
-#    echo "Commiting to git is not enabled"
-#fi
+OUTPUT_DIR="output"
+python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo --output-dir $OUTPUT_DIR
+
+GIT_COMMIT="1"
+if [[ $GIT_COMMIT == "1" ]]; then
+    echo "Commiting enabled, adding output file"
+    git add $OUTPUT_DIR/*
+    echo "========================================"
+    git commit -m "Adding output file"
+    echo "========================================"
+    echo "Pushing changes"
+    git push
+else
+    # simple version are created manually from code edits.
+    echo "Commiting to git is not enabled"
+fi

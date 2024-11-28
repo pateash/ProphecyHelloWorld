@@ -47,7 +47,6 @@ jobs:
           GIT_COMMIT=${{ secrets.COMMIT_TO_GIT }}
           if [[ $GIT_COMMIT == "1" ]]; then
               echo "This is a dev version: $VERSION"
-              
           else
               # simple version are created manually from code edits.
               echo "Commiting to git is not enabled"
