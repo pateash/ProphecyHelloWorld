@@ -37,23 +37,21 @@ jobs:
           export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
           export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
           export RECEIVER_EMAIL=ashish@prophecy.io
-          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo --send-email
+          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR
 
       - name: Commit file to output directory
         run: |
-          git config --global user.name 'pateash'
-          git config --global user.email 'ashishpatel0720@gmail.com'
-          # current version
-          GIT_COMMIT=${{ secrets.COMMIT_TO_GIT }}
+          # set this in secret to enable git commits
+          export GIT_COMMIT=${{ secrets.GIT_COMMIT }}
           if [[ $GIT_COMMIT == "1" ]]; then
-              echo "This is a dev version: $VERSION"
+              echo "Commiting enabled, adding output file"
+              git add $OUTPUT_DIR/*
+              echo "========================================"
+              git commit -m "Adding output file"
+              echo "========================================"
+              echo "Pushing changes"
+              git push
           else
               # simple version are created manually from code edits.
               echo "Commiting to git is not enabled"
           fi
-          git add src/hckr/__about__.py
-          echo "========================================"
-          git commit -m "Adding output file"
-          echo "========================================"
-          echo "Pushing changes"
-          git push
