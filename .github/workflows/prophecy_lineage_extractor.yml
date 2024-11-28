@@ -7,7 +7,7 @@ on:
     paths:
       - 'datasets/**'
       - 'pipelines/**'
-      - 'pbt_proect.yml'
+      - 'pbt_project.yml'
       - '.github/workflows/prophecy_lineage_extractor.yml'
 
 permissions:
