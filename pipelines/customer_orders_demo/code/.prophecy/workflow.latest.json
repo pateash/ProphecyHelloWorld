@@ -117,18 +117,6 @@
     "target" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
     "targetPort" : "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0"
   }, {
-    "id" : "I9sRt1tu60EfIe1D8YKgc",
-    "source" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
-    "sourcePort" : "RemVMRxXeUtWw2giBgmIQ$$T9kfxHrLgVmo9H8hA5cbB",
-    "target" : "GSUUFlQRNjVOpN0aEXxxM$$iyTEQkztUDioP-r44-SVv",
-    "targetPort" : "Dvbu81h-bP2I7I7F9Unjr$$NyUGrg2MbHej80A_m4y3v"
-  }, {
-    "id" : "r743dd-UAClcZdT1-1i82$$4CkfchAWrNdK6LMbQ5ZdR",
-    "source" : "GSUUFlQRNjVOpN0aEXxxM$$iyTEQkztUDioP-r44-SVv",
-    "sourcePort" : "yC3kDwLEXz4hK2RfcFxMq$$fsCq2Ct1YfJGByGlbRSpW",
-    "target" : "jUt2Auhcm4I2F_GA_cjyH$$So46p9d-_-MIni8N-BlFB",
-    "targetPort" : "TUPAxkcmNW6gaxDoSwy59$$u1b_oezRLaN1dwkfv85yA"
-  }, {
     "id" : "_2hBXmvKPegi1uJI36hNr",
     "source" : "2tcpou1McrWVWvzpOvmSF$$OIquRU5LqVj284zRPxuZ3",
     "sourcePort" : "MA-7_T_9Mz7iqkqwiVHLj$$h7DT2d7jd5-I7UO50-900",
@@ -146,6 +134,18 @@
     "sourcePort" : "ngbr-ETDWFNaEv_JaVHRM$$GOFOJMZJsBkr7fhfVtJmj",
     "target" : "qkRT8Jrpa1KyO_lt3EnCW$$VQ5uHxK-AJHMsI_waayXn",
     "targetPort" : "zatjrDHaa2NVPZgQ4VlGY$$OCLlTey_Ull8y0JiYLETq"
+  }, {
+    "id" : "6-CMQ72j5y65zmPJt5dAl",
+    "source" : "vs587iztJohQQmfJ9bJ2N$$6Y3-d1kC7gTPYul3TDyuM",
+    "sourcePort" : "RemVMRxXeUtWw2giBgmIQ$$T9kfxHrLgVmo9H8hA5cbB",
+    "target" : "GSUUFlQRNjVOpN0aEXxxM$$iyTEQkztUDioP-r44-SVv",
+    "targetPort" : "Dvbu81h-bP2I7I7F9Unjr$$NyUGrg2MbHej80A_m4y3v"
+  }, {
+    "id" : "mj4gWR42eZ14OZvcEuNbL$$TvZRO5cGx4l2ciy7TzUl8",
+    "source" : "GSUUFlQRNjVOpN0aEXxxM$$iyTEQkztUDioP-r44-SVv",
+    "sourcePort" : "yC3kDwLEXz4hK2RfcFxMq$$fsCq2Ct1YfJGByGlbRSpW",
+    "target" : "jUt2Auhcm4I2F_GA_cjyH$$So46p9d-_-MIni8N-BlFB",
+    "targetPort" : "TUPAxkcmNW6gaxDoSwy59$$u1b_oezRLaN1dwkfv85yA"
   } ],
   "processes" : {
     "AResD3gy7zOFHUscaEf3F$$QfZGoDo-d1qjoM8Ja_dca" : {
@@ -460,6 +460,15 @@
               }
             }, {
               "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
@@ -1599,7 +1608,7 @@
           "target" : "amounts",
           "expression" : {
             "format" : "sql",
-            "expression" : "amounts * 84.6d"
+            "expression" : "amounts * 84.9d"
           },
           "description" : ""
         }, {
@@ -1637,10 +1646,17 @@
             "expression" : "last_name"
           },
           "description" : ""
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "concat(first_name, ' ', last_name)"
+          },
+          "description" : ""
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##last_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##orders", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##first_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##customer_id", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##amounts", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##account_length_days" ]
+        "columnsSelector" : [ "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##amounts", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##first_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##orders", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##last_name", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##account_length_days", "n3ypiCENSsnBDbmbSQ7Xh$$Ah-mKidsXpRaVHYVS3Nl0##customer_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
