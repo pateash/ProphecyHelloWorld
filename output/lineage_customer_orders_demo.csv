@@ -1,0 +1,42 @@
+Target Catalog,Target Database,Target Table,Column Name,Upstream Lineage
+spark_catalog,prophecy_demos,customer_orders_table,amounts,(amounts * 84.9D)
+spark_catalog,prophecy_demos,customer_orders_table,amounts,sum(amount)
+spark_catalog,prophecy_demos,customer_orders_table,customer_id,customer_id
+spark_catalog,prophecy_demos,customer_orders_table,orders,count(order_id)
+spark_catalog,prophecy_demos,customer_orders_table,account_length_days,"datediff(current_date(), CAST(account_open_date AS DATE))"
+spark_catalog,prophecy_demos,customer_orders_table,account_length_days,first(account_length_days)
+spark_catalog,prophecy_demos,customer_orders_table,first_name,first(first_name)
+spark_catalog,prophecy_demos,customer_orders_table,last_name,first(last_name)
+spark_catalog,prophecy_demos,customer_orders_table,full_name,"concat(first_name, ' ', last_name)"
+spark_catalog,prophecy_demos,customer_orders_table,full_name,"concat(first_name, ' ', last_name)"
+spark_catalog,prophecy_demos,customer_orders_table,full_name,first(first_name)
+spark_catalog,prophecy_demos,customer_orders_table,full_name,first(last_name)
+spark_catalog,prophecy_demos,customer_orders_running_table,account_length_days,"datediff(current_date(), CAST(account_open_date AS DATE))"
+spark_catalog,prophecy_demos,customer_orders_running_table,order_id,order_id
+spark_catalog,prophecy_demos,customer_orders_running_table,customer_id,customer_id
+spark_catalog,prophecy_demos,customer_orders_running_table,amount,amount
+spark_catalog,prophecy_demos,customer_orders_running_table,first_name,first_name
+spark_catalog,prophecy_demos,customer_orders_running_table,last_name,last_name
+spark_catalog,prophecy_demos,customer_orders_running_table,order_amount_running_total,"sum(amount) OVER (PARTITION BY customer_id
+                  ORDER BY order_id ASC NULLS FIRST ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)"
+spark_catalog,prophecy_demos,customers,customer_id,customer_id
+spark_catalog,prophecy_demos,customers,first_name,first_name
+spark_catalog,prophecy_demos,customers,last_name,last_name
+spark_catalog,prophecy_demos,customers,phone,phone
+spark_catalog,prophecy_demos,customers,email,email
+spark_catalog,prophecy_demos,customers,country_code,country_code
+spark_catalog,prophecy_demos,customers,account_open_date,account_open_date
+spark_catalog,prophecy_demos,customers,account_flags,account_flags
+spark_catalog,prophecy_demos,report_table,amounts,amounts
+spark_catalog,prophecy_demos,report_table,customer_id,customer_id
+spark_catalog,prophecy_demos,report_table,orders,orders
+spark_catalog,prophecy_demos,report_table,account_length_days,account_length_days
+spark_catalog,prophecy_demos,report_table,first_name,first_name
+spark_catalog,prophecy_demos,report_table,last_name,last_name
+spark_catalog,prophecy_demos,report_table,full_name,full_name
+spark_catalog,prophecy_demos,orders,order_id,order_id
+spark_catalog,prophecy_demos,orders,customer_id,customer_id
+spark_catalog,prophecy_demos,orders,order_status,order_status
+spark_catalog,prophecy_demos,orders,order_category,order_category
+spark_catalog,prophecy_demos,orders,order_date,order_date
+spark_catalog,prophecy_demos,orders,amount,amount

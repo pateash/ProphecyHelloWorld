@@ -1,4 +1,4 @@
-name: Run Prophecy Lineage extractor and send output to email
+name: Run Prophecy Lineage extractor
 
 on:
   push:
@@ -9,6 +9,10 @@ on:
       - 'pipelines/**'
       - 'pbt_proect.yml'
       - '.github/workflows/prophecy_lineage_extractor.yml'
+
+permissions:
+  contents: write
+
 jobs:
   extract-and-mail-prophecy-lineage:
     runs-on: ubuntu-latest
@@ -35,3 +39,22 @@ jobs:
           export RECEIVER_EMAIL=ashish@prophecy.io
           python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo --send-email
 
+      - name: Commit file to output directory
+        run: |
+          git config --global user.name 'pateash'
+          git config --global user.email 'ashishpatel0720@gmail.com'
+          # current version
+          GIT_COMMIT=${{ secrets.COMMIT_TO_GIT }}
+          if [[ $GIT_COMMIT == "1" ]]; then
+              echo "This is a dev version: $VERSION"
+              
+          else
+              # simple version are created manually from code edits.
+              echo "Commiting to git is not enabled"
+          fi
+          git add src/hckr/__about__.py
+          echo "========================================"
+          git commit -m "Adding output file"
+          echo "========================================"
+          echo "Pushing changes"
+          git push
