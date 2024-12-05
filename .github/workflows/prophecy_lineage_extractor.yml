@@ -1,4 +1,4 @@
-name: [MAIN]: Run Prophecy Lineage extractor
+name: [MAIN] Run Prophecy Lineage extractor
 
 on:
   push:
