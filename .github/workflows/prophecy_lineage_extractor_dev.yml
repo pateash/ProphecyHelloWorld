@@ -1,4 +1,4 @@
-name: [DEV] Run Prophecy Lineage extractor on Dev Branch
+name: Run Prophecy Lineage extractor on dev
 
 on:
   push:
