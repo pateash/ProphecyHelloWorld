@@ -8,7 +8,7 @@ on:
       - 'datasets/**'
       - 'pipelines/**'
       - 'pbt_project.yml'
-      - '.github/workflows/prophecy_lineage_extractor.yml'
+      - '.github/workflows/prophecy_lineage_extractor_dev.yml'
 
 permissions:
   contents: write
