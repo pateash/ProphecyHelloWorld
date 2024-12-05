@@ -1,9 +1,9 @@
-name: [MAIN]: Run Prophecy Lineage extractor
+name: [DEV]: Run Prophecy Lineage extractor on Dev Branch
 
 on:
   push:
     branches:
-      - main  # Trigger on merge to the main branch
+      - dev  # Trigger on merge to the main branch
     paths:
       - 'datasets/**'
       - 'pipelines/**'
@@ -37,8 +37,8 @@ jobs:
           export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
           export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
           export RECEIVER_EMAIL=ashish@prophecy.io
-          export OUTPUT_DIR="output"
-          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR
+          export OUTPUT_DIR="output_dev"
+          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR --branch dev
 
       - name: Commit file to output directory
         run: |
