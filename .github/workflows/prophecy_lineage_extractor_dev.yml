@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Package from PyPI
         run: |
-          pip install --no-cache-dir prophecy-lineage-extractor
+          pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev7
 
       - name: Extract and Send Prophecy Lineage
         run: |
@@ -48,7 +48,7 @@ jobs:
               echo "Commiting enabled, adding output file"
               git add $OUTPUT_DIR/*
               echo "========================================"
-              git commit -m "Adding output file"
+              git commit -m "[dev]: Adding output file"
               echo "========================================"
               echo "Pushing changes"
               git push
