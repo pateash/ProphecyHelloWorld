@@ -3,7 +3,7 @@ name: [DEV]: Run Prophecy Lineage extractor on Dev Branch
 on:
   push:
     branches:
-      - dev  # Trigger on merge to the main branch
+      - dev  # Trigger on merge to the dev branch
     paths:
       - 'datasets/**'
       - 'pipelines/**'
