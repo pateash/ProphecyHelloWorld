@@ -1,14 +1,14 @@
-name: Run Prophecy Lineage extractor on main
+name: Run Prophecy Lineage extractor on dev
 
 on:
   push:
     branches:
-      - main  # Trigger on merge to the main branch
+      - dev  # Trigger on merge to the dev branch
     paths:
       - 'datasets/**'
       - 'pipelines/**'
       - 'pbt_project.yml'
-      - '.github/workflows/prophecy_lineage_extractor.yml'
+      - '.github/workflows/prophecy_lineage_extractor_dev.yml'
 
 permissions:
   contents: write
@@ -37,8 +37,8 @@ jobs:
           export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
           export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
           export RECEIVER_EMAIL=ashish@prophecy.io
-          export OUTPUT_DIR="output"
-          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR
+          export OUTPUT_DIR="output_dev"
+          python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR --branch dev
 
       - name: Commit file to output directory
         run: |
@@ -48,7 +48,7 @@ jobs:
               echo "Commiting enabled, adding output file"
               git add $OUTPUT_DIR/*
               echo "========================================"
-              git commit -m "[main]: Adding output file"
+              git commit -m "[dev]: Adding output file"
               echo "========================================"
               echo "Pushing changes"
               git push
