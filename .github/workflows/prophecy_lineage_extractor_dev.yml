@@ -19,6 +19,7 @@ jobs:
     env:
       OUTPUT_DIR: "output_dev"
     steps:
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
