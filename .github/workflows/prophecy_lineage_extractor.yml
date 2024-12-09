@@ -25,7 +25,7 @@ jobs:
 
       - name: Install Package from PyPI
         run: |
-          pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev7
+          pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev8
 
       - name: Extract and Send Prophecy Lineage
         run: |

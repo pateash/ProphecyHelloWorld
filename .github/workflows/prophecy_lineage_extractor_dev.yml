@@ -27,7 +27,7 @@ jobs:
 
       - name: Install Package from PyPI
         run: |
-          pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev7
+          pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev8
 
       - name: Extract and Send Prophecy Lineage
         env:
@@ -48,7 +48,7 @@ jobs:
         run: |
           # set this in secret to enable git commits
           echo "output dir '$OUTPUT_DIR'"
-          ls -la
+          ls -la $OUTPUT_DIR
           if [[ $GIT_COMMIT == "1" ]]; then
               git config --global user.name 'pateash'
               git config --global user.email 'ashishpatel0720@gmail.com'
