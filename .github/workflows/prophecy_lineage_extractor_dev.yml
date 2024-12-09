@@ -29,21 +29,21 @@ jobs:
           pip install --no-cache-dir prophecy-lineage-extractor==0.11.0.dev7
 
       - name: Extract and Send Prophecy Lineage
+        env:
+          PROPHECY_URL: "https://app.prophecy.io"
+          MONITOR_TIME_ENV: ${{ vars.MONITOR_TIME_ENV }}
+          PROPHECY_PAT: ${{ secrets.PROPHECY_PAT }}
+          SMTP_HOST: "smtp.gmail.com"
+          SMTP_PORT: "587"
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          RECEIVER_EMAIL: "ashish@prophecy.io"
         run: |
-          export PROPHECY_URL=https://app.prophecy.io
-          export PROPHECY_PAT=${{ secrets.PROPHECY_PAT }}
-          
-          export SMTP_HOST=smtp.gmail.com
-          export SMTP_PORT=587
-          export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
-          export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
-          export RECEIVER_EMAIL=ashish@prophecy.io
           python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR --branch dev
 
       - name: Commit file to output directory
         env:
            GIT_COMMIT: ${{ vars.GIT_COMMIT }}  # Reference the GitHub variable here
-           MONITOR_TIME_ENV: 60  # Reference the GitHub variable here
         run: |
           # set this in secret to enable git commits
           echo "output dir '$OUTPUT_DIR'"
