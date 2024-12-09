@@ -44,7 +44,10 @@ jobs:
         run: |
           # set this in secret to enable git commits
           export GIT_COMMIT=${{ secrets.GIT_COMMIT }}
+          echo "output dir $OUTPUT_DIR"
           if [[ $GIT_COMMIT == "1" ]]; then
+              git config --global user.name 'pateash'
+              git config --global user.email 'ashishpatel0720@gmail.com'
               echo "Commiting enabled, adding output file"
               git add $OUTPUT_DIR/*
               echo "========================================"
