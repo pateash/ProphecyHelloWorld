@@ -41,9 +41,10 @@ jobs:
           python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR --branch dev
 
       - name: Commit file to output directory
+        env:
+           GIT_COMMIT: ${{ vars.GIT_COMMIT }}  # Reference the GitHub variable here
         run: |
           # set this in secret to enable git commits
-          export GIT_COMMIT=${{ secrets.GIT_COMMIT }}
           echo "output dir $OUTPUT_DIR"
           if [[ $GIT_COMMIT == "1" ]]; then
               git config --global user.name 'pateash'
