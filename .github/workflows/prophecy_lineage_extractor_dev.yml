@@ -48,9 +48,9 @@ jobs:
               echo "Commiting enabled, adding output file"
               git add $OUTPUT_DIR/*
               echo "========================================"
-              git commit -m "[dev]: Adding output file"
+              git commit -m "[dev]: Adding excel lineage report"
               echo "========================================"
-              echo "Pushing changes"
+              echo "Pushing Changes to git"
               git push
           else
               # simple version are created manually from code edits.
