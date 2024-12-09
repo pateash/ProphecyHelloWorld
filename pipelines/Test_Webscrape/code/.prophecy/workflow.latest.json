@@ -367,7 +367,7 @@
         "columnsSelector" : [ "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.createTime", "glB9sbRn7F-aV4MQTA7m9$$ocb2xa64cEvJS4dZ_6_aO##data.ts" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.34&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.36&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

@@ -11,22 +11,6 @@ buildSystemDetails:
   author: null
   createdAt: '2023-08-04 08:59:20'
 pipelines:
-  pipelines/customers_orders:
-    name: customers_orders
-    description: Aggregates total spending's for each customer
-    author: matthew@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2023-08-04 08:59:21'
-    datasets:
-      inputs:
-      - datasets/customers
-      - datasets/orders
-      outputs:
-      - datasets/customers_orders
-    subgraphs: []
-    dependencies: {}
   pipelines/report_top_customers:
     name: report_top_customers
     description: Prepare a report based on customers' spending
@@ -140,6 +124,22 @@ pipelines:
       - datasets/customer_orders_running_table
       - datasets/customers_orders_table
       - datasets/report_table
+    subgraphs: []
+    dependencies: {}
+  pipelines/customers_orders:
+    name: customers_orders
+    description: Aggregates total spending's for each customer
+    author: matthew@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2023-08-04 08:59:21'
+    datasets:
+      inputs:
+      - datasets/customers
+      - datasets/orders
+      outputs:
+      - datasets/customers_orders
     subgraphs: []
     dependencies: {}
 datasets:
@@ -438,10 +438,10 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.34
+    version: 0.2.36
     isDefault: true
     author: null
-    createdAt: '2024-11-19 14:26:07'
+    createdAt: '2024-12-06 09:21:19'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
