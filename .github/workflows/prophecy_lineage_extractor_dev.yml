@@ -16,7 +16,8 @@ permissions:
 jobs:
   extract-and-mail-prophecy-lineage:
     runs-on: ubuntu-latest
-
+    env:
+      OUTPUT_DIR: "output_dev"
     steps:
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -37,15 +38,16 @@ jobs:
           export SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
           export SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
           export RECEIVER_EMAIL=ashish@prophecy.io
-          export OUTPUT_DIR="output_dev"
           python -m prophecy_lineage_extractor --project-id 36587 --pipeline-id 36587/pipelines/customer_orders_demo  --send-email --output-dir $OUTPUT_DIR --branch dev
 
       - name: Commit file to output directory
         env:
            GIT_COMMIT: ${{ vars.GIT_COMMIT }}  # Reference the GitHub variable here
+           MONITOR_TIME_ENV: 60  # Reference the GitHub variable here
         run: |
           # set this in secret to enable git commits
-          echo "output dir $OUTPUT_DIR"
+          echo "output dir '$OUTPUT_DIR'"
+          ls -la
           if [[ $GIT_COMMIT == "1" ]]; then
               git config --global user.name 'pateash'
               git config --global user.email 'ashishpatel0720@gmail.com'
