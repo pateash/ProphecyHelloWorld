@@ -31,11 +31,6 @@ extract_and_mail:
   only:
     refs:
       - dev
-    changes:
-      - datasets/***
-      - pipelines/***
-      - pbt_project.yml
-      - .gitlab-ci.yml
 
 commit_files:
   stage: commit
