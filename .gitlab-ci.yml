@@ -14,14 +14,15 @@ variables:
 extract_and_mail:
   stage: extract
   image: python:3.9
-  variables:
-    PROPHECY_URL: $PROPHECY_URL  # GitLab secret variable
-    PROPHECY_PAT: $PROPHECY_PAT  # GitLab secret variable
-    SMTP_USERNAME: $SMTP_USERNAME  # GitLab secret variable
-    SMTP_PASSWORD: $SMTP_PASSWORD  # GitLab secret variable
   script:
     - echo "Checking PROPHECY_URL '$PROPHECY_URL'"
     - pip install --no-cache-dir prophecy-lineage-extractor
+    - |
+      # environment variables
+      export PROPHECY_URL="$PROPHECY_URL"
+      export PROPHECY_PAT="$PROPHECY_PAT"
+      export SMTP_USERNAME="$SMTP_USERNAME"
+      export SMTP_PASSWORD="$SMTP_PASSWORD"
     - |
       python -m prophecy_lineage_extractor \
         --project-id 36587 \
