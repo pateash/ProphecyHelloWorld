@@ -20,6 +20,7 @@ extract_and_mail:
     SMTP_USERNAME: $SMTP_USERNAME  # GitLab secret variable
     SMTP_PASSWORD: $SMTP_PASSWORD  # GitLab secret variable
   script:
+    - echo "Checking PROPHECY_URL '$PROPHECY_URL'"
     - pip install --no-cache-dir prophecy-lineage-extractor
     - |
       python -m prophecy_lineage_extractor \
@@ -37,7 +38,6 @@ commit_files:
   image: alpine/git
   script:
     - echo "output dir '$OUTPUT_DIR'"
-    - echo "PROPHECY_URL: $PROPHECY_URL"
     - |
       if [[ $GIT_COMMIT == "1" ]]; then
           git config --global user.name 'pateash'
