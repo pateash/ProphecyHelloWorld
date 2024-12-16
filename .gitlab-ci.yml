@@ -37,6 +37,7 @@ commit_files:
   image: alpine/git
   script:
     - echo "output dir '$OUTPUT_DIR'"
+    - echo "PROPHECY_URL: $PROPHECY_URL"
     - |
       if [[ $GIT_COMMIT == "1" ]]; then
           git config --global user.name 'pateash'
