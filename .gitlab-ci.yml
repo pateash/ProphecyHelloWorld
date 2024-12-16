@@ -4,11 +4,6 @@ stages:
   - commit
 
 variables:
-  OUTPUT_DIR: "output_dev"
-  SMTP_HOST: "smtp.gmail.com"
-  SMTP_PORT: "587"
-  RECEIVER_EMAIL: "ashish@prophecy.io"
-  MONITOR_TIME_ENV: "50" # value in seconds for monitoring, this might be increased depending on pipeline size
   GIT_COMMIT: "1" # to enable commiting report file to git
 
 extract_and_mail:
@@ -23,6 +18,12 @@ extract_and_mail:
       export PROPHECY_PAT="$PROPHECY_PAT"
       export SMTP_USERNAME="$SMTP_USERNAME"
       export SMTP_PASSWORD="$SMTP_PASSWORD"
+      export SMTP_HOST="smtp.gmail.com"
+      export SMTP_PORT="587"
+      export RECEIVER_EMAIL="ashish@prophecy.io"
+      # value in seconds for monitoring, this might be increased depending on pipeline size
+      export MONITOR_TIME_ENV="50"
+      export OUTPUT_DIR="output_dev"
     - |
       python -m prophecy_lineage_extractor \
         --project-id 36587 \
