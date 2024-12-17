@@ -38,7 +38,7 @@ extract_and_mail:
     - echo "Committing enabled, adding output file"
     - git add $OUTPUT_DIR/*
     - git commit -m "[GitLab CI - dev] Adding excel lineage report"
-    - echo "token: $ACCESS_TOKEN"
+    - echo "token- $ACCESS_TOKEN"
     - git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
     - echo "Pushing changes to git"
     #    - git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
