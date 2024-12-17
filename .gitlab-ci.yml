@@ -1,7 +1,7 @@
 stages:
-  - setup
+#  - setup
   - extract
-  - commit
+#  - commit
 
 variables:
   GIT_COMMIT: "1" # to enable commiting report file to git
@@ -30,14 +30,7 @@ extract_and_mail:
         --send-email \
         --output-dir $OUTPUT_DIR \
         --branch dev
-  only:
-    refs:
-      - dev
 
-commit_files:
-  stage: commit
-#  image: alpine/git
-  script:
     - git status
     - ls -la
     - echo "output directory '$OUTPUT_DIR'"
@@ -49,11 +42,34 @@ commit_files:
     - git commit -m "[GitLab CI - dev] Adding excel lineage report"
     - git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
     - echo "Pushing changes to git"
-#    - git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
-#    - git push
+    #    - git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
+    #    - git push
     - git push gitlab_origin HEAD:main -o ci.skip # prevent triggering pipeline again
-  dependencies:
-    - extract_and_mail
+
   only:
     refs:
       - dev
+#
+#commit_files:
+#  stage: commit
+##  image: alpine/git
+#  script:
+##    - git status
+##    - ls -la
+#    - echo "output directory '$OUTPUT_DIR'"
+##    - ls -la $OUTPUT_DIR
+##    - git config --global user.name 'pateash'
+##    - git config --global user.email 'ashishpatel0720@gmail.com'
+##    - echo "Committing enabled, adding output file"
+##    - git add $OUTPUT_DIR/*
+##    - git commit -m "[GitLab CI - dev] Adding excel lineage report"
+##    - git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
+##    - echo "Pushing changes to git"
+###    - git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
+###    - git push
+##    - git push gitlab_origin HEAD:main -o ci.skip # prevent triggering pipeline again
+#  dependencies:
+#    - extract_and_mail
+#  only:
+#    refs:
+#      - dev
