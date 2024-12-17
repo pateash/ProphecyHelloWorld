@@ -38,11 +38,14 @@ commit_files:
   stage: commit
 #  image: alpine/git
   script:
+    - git status
+    - ls -la
     - echo "output directory '$OUTPUT_DIR'"
+    - ls -la $OUTPUT_DIR
     - git config --global user.name 'pateash'
     - git config --global user.email 'ashishpatel0720@gmail.com'
     - echo "Committing enabled, adding output file"
-    - git add "$OUTPUT_DIR"/*
+    - git add $OUTPUT_DIR/*
     - git commit -m "[GitLab CI - dev] Adding excel lineage report"
     - git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
     - echo "Pushing changes to git"
