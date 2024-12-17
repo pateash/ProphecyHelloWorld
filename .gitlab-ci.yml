@@ -39,7 +39,7 @@ commit_files:
   stage: commit
   image: alpine/git
   script:
-    - echo "output dir '$OUTPUT_DIR'"
+    - echo "output directory '$OUTPUT_DIR'"
     - |
       if [ "$GIT_COMMIT" == "1" ]; then
           git config --global user.name 'pateash'
@@ -48,8 +48,7 @@ commit_files:
           git add "$OUTPUT_DIR"/*
           git commit -m "[GitLab CI: dev]: Adding excel lineage report"
           echo "Pushing changes to git"
-          git push
-          # git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
+          git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
       else
           echo "Committing to git is not enabled"
       fi
