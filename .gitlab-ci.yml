@@ -8,7 +8,6 @@ extract_and_mail:
   stage: extract
   image: python:3.9
   script:
-    - echo "Checking PROPHECY_URL '$PROPHECY_URL'"
     - pip install --no-cache-dir prophecy-lineage-extractor
     - |
       # gitlab ci/cd variables, access_token also need to be defined if using git commit
@@ -31,13 +30,13 @@ extract_and_mail:
         --branch $BRANCH
     - |
       if [ "$GIT_COMMIT" == "1" ]; then
-        echo "output directory '$OUTPUT_DIR'"
+        echo "Git commit is enabled, output directory '$OUTPUT_DIR'"
         git config --global user.name 'pateash'
         git config --global user.email 'ashishpatel0720@gmail.com'
         git add $OUTPUT_DIR/*
         git commit -m "[GitLab CI - $BRANCH] Adding excel lineage report"
         git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
-        echo "Pushing changes to git"
+        echo "Pushing changes to git branch $BRANCH"
         git push gitlab_origin HEAD:$BRANCH -o ci.skip # prevent triggering pipeline again
       else
           echo "Committing to git is not enabled"
