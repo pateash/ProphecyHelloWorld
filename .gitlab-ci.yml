@@ -41,14 +41,15 @@ commit_files:
   script:
     - echo "output dir '$OUTPUT_DIR'"
     - |
-      if [[ $GIT_COMMIT == "1" ]]; then
+      if [ "$GIT_COMMIT" == "1" ]; then
           git config --global user.name 'pateash'
           git config --global user.email 'ashishpatel0720@gmail.com'
           echo "Committing enabled, adding output file"
-          git add $OUTPUT_DIR/*
+          git add "$OUTPUT_DIR"/*
           git commit -m "[GitLab CI: dev]: Adding excel lineage report"
           echo "Pushing changes to git"
           git push
+          # git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
       else
           echo "Committing to git is not enabled"
       fi
