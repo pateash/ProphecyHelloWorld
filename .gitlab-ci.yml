@@ -5,7 +5,7 @@ stages:
 
 variables:
   GIT_COMMIT: "1" # to enable commiting report file to git
-
+  OUTPUT_DIR: "output_dev"
 extract_and_mail:
   stage: extract
   image: python:3.9
@@ -23,7 +23,6 @@ extract_and_mail:
       export RECEIVER_EMAIL="ashish@prophecy.io"
       # value in seconds for monitoring, this might be increased depending on pipeline size
       export MONITOR_TIME_ENV="50"
-      export OUTPUT_DIR="output_dev"
     - |
       python -m prophecy_lineage_extractor \
         --project-id 36587 \
