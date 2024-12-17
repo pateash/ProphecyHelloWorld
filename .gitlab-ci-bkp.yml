@@ -37,19 +37,21 @@ extract_and_mail:
 
 commit_files:
   stage: commit
-#  image: alpine/git
+  image: alpine/git
   script:
     - echo "output directory '$OUTPUT_DIR'"
-    - git config --global user.name 'pateash'
-    - git config --global user.email 'ashishpatel0720@gmail.com'
-    - echo "Committing enabled, adding output file"
-    - git add "$OUTPUT_DIR"/*
-    - git commit -m "[GitLab CI - dev] Adding excel lineage report"
-    - git remote add gitlab_origin https://oauth2:$ACCESS_TOKEN@gitlab.com/pateash/ProphecyHelloWorld.git
-    - echo "Pushing changes to git"
-#    - git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
-#    - git push
-    - git push gitlab_origin HEAD:main -o ci.skip # prevent triggering pipeline again
+    - |
+      if [ "$GIT_COMMIT" == "1" ]; then
+          git config --global user.name 'pateash'
+          git config --global user.email 'ashishpatel0720@gmail.com'
+          echo "Committing enabled, adding output file"
+          git add "$OUTPUT_DIR"/*
+          git commit -m "[GitLab CI: dev]: Adding excel lineage report"
+          echo "Pushing changes to git"
+          git push https://oauth2:$CI_JOB_TOKEN@$CI_SERVER_HOST/$CI_PROJECT_PATH.git HEAD:dev
+      else
+          echo "Committing to git is not enabled"
+      fi
   dependencies:
     - extract_and_mail
   only:
